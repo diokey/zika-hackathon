@@ -1,0 +1,64 @@
+<main class="mdl-layout__content mdl-color--grey-100">
+  <form method="POST" action="/download" class="hidden" id="hidden_download_form">
+    <input type="hidden" name="fields" id="fields" value="{{query.fields}}"/>
+    <input type="hidden" name="sources" id="sources" value="{{query.sources}}"/>
+    <input type="hidden" name="locations" id="locations" value="{{query.locations}}"/>
+  </form>
+
+  {{#if results}}
+  <div class="app mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+    <div class="table__center mdl-cell mdl-cell--12-col action-controls--center">
+      <div class="table-title">
+        <h3>Search Result</h3>
+      </div>
+      <div class="table-title">
+        <h3>Export</h3>
+        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary" id="csvDownload">
+          CSV
+        </button>
+        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary">
+          Excel
+        </button>
+        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary">
+          PDF
+        </button>
+      </div>
+      <table id="filesTable" class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+        <thead>
+          <tr>
+            <th class="mdl-data-table__cell--non-numeric">Period</th>
+            <th class="mdl-data-table__cell--non-numeric">Field</th>
+            <th class="mdl-data-table__cell--numeric">Value</th>
+            <th class="mdl-data-table__cell--non-numeric">Unit</th>
+            <th class="mdl-data-table__cell--non-numeric">Location</th>
+            <th class="mdl-data-table__cell--non-numeric">Source</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each results}}
+          <tr>
+            <td class="mdl-data-table__cell--non-numeric">{{report_date}}</td>
+            <td class="mdl-data-table__cell--non-numeric">{{data_field_name}}</td>
+            <td class="mdl-data-table__cell--numeric">{{value}}</td>
+            <td class="mdl-data-table__cell--non-numeric">{{data_field_unit}}</td>
+            <td class="mdl-data-table__cell--non-numeric">{{location_name}}</td>
+            <td class="mdl-data-table__cell--non-numeric">{{source_name}}</td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+      <div id="filesPagination" class="pagination action-controls--center">
+      </div>
+    </div>
+  </div>
+  {{else}}
+    <div class="box--center app mdl-shadow--2dp mdl-color--white mdl-cell mdl-cell--12-col mdl-grid">
+      <h2 style="margin:auto">
+        <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+          <i class="material-icons">mood</i>
+        </button>
+        No data to display
+      </h2>
+    </div>
+  {{/if}}
+</main>

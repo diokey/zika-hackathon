@@ -1,0 +1,132 @@
+<main class="mdl-layout__content mdl-color--grey-100">
+  <div class="mdl-grid">
+    <div class="app mdl-shadow--2dp mdl-color--white mdl-cell mdl-cell--12-col mdl-grid">
+      <div class="table__center mdl-cell mdl-cell--4-col">
+        <div class="table-title">
+          <h3>Fields</h3>
+        </div>
+        <table id="fieldsTable" class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+          <thead>
+            <tr>
+              <th class="mdl-data-table__cell--non-numeric">Name</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each fields}}
+            <tr>
+              <td class="mdl-data-table__cell--non-numeric">{{data_field_name}}</td>
+            </tr>
+            {{/each}}
+          </tbody>
+        </table>
+        <div id="fieldsPagination" class="pagination action-controls--center">
+        </div>
+      </div>
+
+      <div id="sourcesTable" class="table__center mdl-cell mdl-cell--4-col">
+        <div class="table-title">
+          <h3>Data Sources</h3>
+        </div>
+        <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+          <thead>
+            <tr>
+              <th class="mdl-data-table__cell--non-numeric">Source</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each sources}}
+            <tr>
+              <td class="mdl-data-table__cell--non-numeric">{{source_name}}</td>
+            </tr>
+            {{/each}}
+          </tbody>
+        </table>
+        <div id="sourcesPagination" class="pagination action-controls--center">
+        </div>
+      </div>
+
+      <div id="locationsTable" class="table__center mdl-cell mdl-cell--4-col">
+        <div class="table-title">
+          <h3>Locations</h3>
+        </div>
+        <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+          <thead>
+            <tr>
+              <th class="mdl-data-table__cell--non-numeric">Name</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each locations}}
+            <tr>
+              <td class="mdl-data-table__cell--non-numeric">{{location_name}}</td>
+            </tr>
+            {{/each}}
+          </tbody>
+        </table>
+        <div id="locationsPagination" class="pagination action-controls--center">
+        </div>
+      </div>
+
+      <div class="box--center action-controls--center">
+        <div class="mdl-layout-spacer"></div>
+        <button id="downloadBtn" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary">
+          <i class="material-icons">search</i>
+          Search
+        </button>
+      </div>
+      <form method="POST" action="/results" class="hidden" id="hidden_form">
+        <input type="hidden" name="fields" id="fields"/>
+        <input type="hidden" name="sources" id="sources"/>
+        <input type="hidden" name="locations" id="locations"/>
+      </form>
+    </div>
+  </div>
+
+  {{#if results}}
+  <div class="app mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+    <div class="table__center mdl-cell mdl-cell--12-col action-controls--center">
+      <div class="table-title">
+        <h3>Search Result</h3>
+      </div>
+      <div>
+        <h3>Export</h3>
+          <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary">
+          CSV
+        </button>
+        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary">
+          Excel
+        </button>
+        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary">
+          PDF
+        </button>
+      </div>
+      <table id="filesTable" class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+        <thead>
+          <tr>
+            <th class="mdl-data-table__cell--non-numeric">Period</th>
+            <th class="mdl-data-table__cell--non-numeric">Field</th>
+            <th class="mdl-data-table__cell--numeric">Value</th>
+            <th class="mdl-data-table__cell--non-numeric">Unit</th>
+            <th class="mdl-data-table__cell--non-numeric">Location</th>
+            <th class="mdl-data-table__cell--non-numeric">Source</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each results}}
+          <tr>
+            <td class="mdl-data-table__cell--non-numeric">{{report_date}}</td>
+            <td class="mdl-data-table__cell--non-numeric">{{data_field_name}}</td>
+            <td class="mdl-data-table__cell--numeric">{{value}}</td>
+            <td class="mdl-data-table__cell--non-numeric">{{data_field_unit}}</td>
+            <td class="mdl-data-table__cell--non-numeric">{{location_name}}</td>
+            <td class="mdl-data-table__cell--non-numeric">{{source_name}}</td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+      <div id="filesPagination" class="pagination action-controls--center">
+      </div>
+    </div>
+  </div>
+  {{/if}}
+</main>

@@ -1,0 +1,139 @@
+
+html, body {
+  font-family: 'Roboto', 'Helvetica', sans-serif;
+}
+
+.app-drawer {
+  border: none;
+}
+/* iOS Safari specific workaround */
+.app-drawer .mdl-menu__container {
+  z-index: -1;
+}
+.app-drawer .app-navigation {
+  z-index: -2;
+}
+/* END iOS Safari specific workaround */
+.app-drawer .mdl-menu .mdl-menu__item {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.app-navigation {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+.app-layout .app-navigation .mdl-navigation__link {
+  display: -webkit-box !important;
+  display: -webkit-flex !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: rgba(255, 255, 255, 0.56);
+  font-weight: 500;
+}
+.app-layout .app-navigation .mdl-navigation__link:hover {
+  background-color: #00BCD4;
+  color: #37474F;
+}
+.app-navigation .mdl-navigation__link .material-icons {
+  font-size: 24px;
+  color: rgba(255, 255, 255, 0.56);
+  margin-right: 32px;
+}
+
+.app {
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+}
+
+.table-title h3 {
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+  text-align:center
+}
+
+.app .table__center table {
+  margin:auto;
+  width:100%;
+}
+
+.app .action-controls--center {
+  margin:auto;
+  text-align:center;
+  margin-bottom: 12px;
+  margin-top: 12px;
+}
+
+.box--center {
+  margin:auto;
+}
+
+.pagination a {
+  display: inline-block;
+  font-size: small;
+  min-width: 40px;
+  width: 40px;
+  height: 40px;
+  line-height: 300%;
+  margin: 0 2px;
+}
+
+.text-color--red {
+  color: rgb(244,67,54);
+}
+
+.align-text--left {
+  text-align:left;
+}
+
+.feedback-container {
+  position:relative;
+  top:0px;
+  right:0px;
+  width:100%;
+  margin-left: 0px;
+}
+
+.feedback-container .feedback {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  height: 64px;
+  overflow: hidden;
+}
+
+.feedback > .feedback-content {
+  padding:18px;
+  color: white;
+}
+
+.feedback-content .material-icons {
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
+.zikka-search-form {
+  margin: 6px;
+  padding: 6px;
+}
+
