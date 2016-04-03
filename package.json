@@ -11,10 +11,13 @@
     "debug": "~2.2.0",
     "express": "~4.13.1",
     "express-handlebars": "^2.0.1",
+    "install": "0.6.1",
     "jade": "~1.11.0",
     "json2csv": "3.2.0",
     "morgan": "~1.6.1",
+    "msexcel-builder": "0.0.2",
     "mysql": "2.10.2",
+    "npm": "3.8.5",
     "pg": "^4.4.3",
     "serve-favicon": "~2.3.0"
   },
