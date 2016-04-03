@@ -3,6 +3,7 @@
     <input type="hidden" name="fields" id="fields" value="{{query.fields}}"/>
     <input type="hidden" name="sources" id="sources" value="{{query.sources}}"/>
     <input type="hidden" name="locations" id="locations" value="{{query.locations}}"/>
+    <input type="hidden" name="file_type" id="file_type"/>
   </form>
 
   {{#if results}}
@@ -16,7 +17,7 @@
         <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary" id="csvDownload">
           CSV
         </button>
-        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary">
+        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary" id="xlsDownload">
           Excel
         </button>
         <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary">

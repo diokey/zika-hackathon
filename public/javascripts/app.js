@@ -5,6 +5,7 @@
     var hiddenForm,
         downloadBtnInput,
         downloadCSVBtn,
+        downloadXLSBtn,
         fieldsTable,
         sourcesTable,
         locationsTable
@@ -15,6 +16,7 @@
       hiddenForm = document.querySelector('#hidden_form');
       downloadBtnInput = document.querySelector('#downloadBtn');
       downloadCSVBtn = document.querySelector('#csvDownload');
+      downloadXLSBtn = document.querySelector('#xlsDownload');
       fieldsTable = document.querySelector('#fieldsTable');
       sourcesTable = document.querySelector('#sourcesTable');
       locationsTable = document.querySelector('#locationsTable');
@@ -22,6 +24,13 @@
       // attach event listeners
       downloadCSVBtn && downloadCSVBtn.addEventListener('click', function (event) {
         event.preventDefault();
+        document.querySelector('#file_type').value='csv';
+        document.querySelector('#hidden_download_form').submit();
+      });
+
+      downloadXLSBtn && downloadXLSBtn.addEventListener('click', function (event) {
+        event.preventDefault();
+        document.querySelector('#file_type').value='xlsx';
         document.querySelector('#hidden_download_form').submit();
       });
 
