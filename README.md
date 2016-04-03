@@ -8,6 +8,7 @@ Node.js v5+
 # Install
 
 ``
-npm instal
-npm start
+npm install
+
 ``
+npm start
